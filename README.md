@@ -5,7 +5,7 @@ Hub][hub].
 ## Quick Tips
 Be sure to set Docker Engine configuration on the host to allow the space and other resources.
 
-At the host, use this to the a clone:
+At the host, use this to get a clone:
 ``` shell
 git clone https://github.com/vidalastudillo/buildroot_in
 ```
