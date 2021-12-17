@@ -2,6 +2,14 @@
 A Docker image for using [Buildroot][buildroot]. It can be found on [Docker
 Hub][hub].
 
+## Quick Tips
+Be sure to set Docker Engine configuration on the host to allow the space and other resources.
+
+At the host, use this to the a clone:
+``` shell
+git clone https://github.com/vidalastudillo/buildroot_in
+```
+
 ## Get started
 To get started build the Docker image.
 
