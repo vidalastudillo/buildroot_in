@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -8,7 +8,6 @@ RUN apt-get update && \
     bash \
     bc \
     binutils \
-    build-essential \
     bzip2 \
     cpio \
     g++ \
@@ -34,13 +33,14 @@ RUN apt-get update && \
     bison \
     flex \
     libssl-dev \
-    libfdt-dev
+    libfdt-dev \
+    nano
 
 # Sometimes Buildroot need proper locale, e.g. when using a toolchain
 # based on glibc.
 RUN locale-gen en_US.utf8
 
-RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2020.08 /root/buildroot
+RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2021.02.8 /root/buildroot
 
 WORKDIR /root/buildroot
 
