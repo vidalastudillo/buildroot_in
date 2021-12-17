@@ -3,12 +3,14 @@ A Docker image for using [Buildroot][buildroot]. It can be found on [Docker
 Hub][hub].
 
 ## Quick Tips
-Be sure to set Docker Engine configuration on the host to allow the space and other resources.
+* Be sure to set Docker Engine configuration on the host to allow the space and other resources.
 
-At the host, use this to get a clone:
+* To get a clone, use at the host:
 ``` shell
 git clone https://github.com/vidalastudillo/buildroot_in
 ```
+
+* Check [migrating Buildroot][migrating_buildroot] if you change the Buildroot version on the Dockerfile.
 
 ## Get started
 To get started build the Docker image.
@@ -84,3 +86,4 @@ This software is licensed under Mozila Public License.
 [docker_python2_defconfig]:external/configs/docker_python2_defconfig
 [br2_external]:http://buildroot.uclibc.org/downloads/manual/manual.html#outside-br-custom
 [docker_blog]:https://blog.docker.com/2013/06/create-light-weight-docker-containers-buildroot/
+[migrating_buildroot]:http://buildroot.uclibc.org/downloads/manual/manual.html#migrating-from-ol-versions
