@@ -34,6 +34,7 @@ DOCKER_RUN="docker run
     -v $(pwd)/data:$BUILDROOT_DIR/data
     -v $(pwd)/external:$BUILDROOT_DIR/external
     -v $(pwd)/rootfs_overlay:$BUILDROOT_DIR/rootfs_overlay
+    -v $(pwd)/target:$OUTPUT_DIR/target
     -v $(pwd)/images:$OUTPUT_DIR/images
     advancedclimatesystems/buildroot"
 

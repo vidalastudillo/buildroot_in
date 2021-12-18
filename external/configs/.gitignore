@@ -1,0 +1,7 @@
+# Ignore everything...
+*
+
+# ...except this file.
+!.gitignore
+docker_python2_defconfig
+docker_python3_defconfig
