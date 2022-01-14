@@ -21,18 +21,3 @@ disable_overscan=1
 gpu_mem_256=100
 gpu_mem_512=100
 gpu_mem_1024=100
-
-# To disable the rainbow splash screen etc
-disable_splash=1
-avoid_warnings=1
-avoid_safe_mode=1
-boot_delay=0
-
-# To enable SPI and PWM
-# If you wish to use different IO, keep in mind that h/w pwm is only available on certain GPIO (e.g. ch0 on 12/18 and ch1 on 13/19 for RPI2B).
-# I happened to use RasClock for my RTC, hence pcf2127.
-dtparam=spi=on
-gpu_mem=256
-dtoverlay=i2c-rtc,pcf2127
-dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
-dtoverlay=rotary-encoder,pin_a=24,pin_b=23,relative_axis=1
