@@ -13,7 +13,9 @@ To tell Buildroot to use this external tree, it is required to issue this once:
 ## Configurations available
 
 **myrpi2_defconfig**
+
 The basic image:
+- Starting point.
 
 ``` shell
 ./scripts/run.sh make clean all
@@ -22,8 +24,21 @@ The basic image:
 ```
 
 **myrpi2_splash_defconfig**
-(Not working yet, build fails)
-- splash screen, means of customizing image assembly - used to effect "silent" boot 
+
+(Not working yet, splash does not work)
+
+New from previous configuration `myrpi2_defconfig`:
+- Splash screen, means of customizing image assembly - used to effect "silent" boot 
+
+Modified from original post:
+- Modified `post-image.sh` from the buildroot original.
+- Modified `cmdline.txt` from the post original, to include missing splash.
+- Changed kernel version:
+    BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_5_10=y
+    BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="$(call github,raspberrypi,linux,581049d718caf95f5feb00607ac748d5841cf27c)/linux-581049d718caf95f5feb00607ac748d5841cf27c.tar.gz"
+- Added (Build failed as bootcode.bin was not created):
+    BR2_PACKAGE_RPI_FIRMWARE_BOOTCODE_BIN=y
+    BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI=y
 
 ``` shell
 ./scripts/run.sh make clean all
@@ -32,15 +47,42 @@ The basic image:
 ```
 
 **myrpi2_splash_kivy_defconfig**
-(Not working yet, build fails)
+
+(splash does not work, yet)
+
+New from previous configuration `myrpi2_splash_defconfig`:
 - THUMB2 instruction set and MUSL LIBC, intention being to reduce image size and speed up cold boot
 - /dev creation with eudev
 - root login via SSH (pwd "raspberry")
 - python3 + kivy
 
+Modified from original post:
+- Same from configuration `myrpi2_splash_defconfig`
+
 ``` shell
 ./scripts/run.sh make clean all
 ./scripts/run.sh make myrpi2_splash_kivy_defconfig
+./scripts/run.sh make
+```
+
+**myrpi2_kivy_rofs_defconfig**
+
+(splash does not work, yet)
+(kivy app does not work, yet. No logs. It may be related to i2c-dev not present on etc/modules )
+
+New from previous configuration `myrpi2_splash_kivy_defconfig`:
+- read-only file system
+- usb storage FAT and NTFS
+- h/w pwm
+- quadrature encoder input
+- I2C, SPI
+
+Modified from original post:
+- Same from configuration `myrpi2_splash_kivy_defconfig`
+
+``` shell
+./scripts/run.sh make clean all
+./scripts/run.sh make myrpi2_kivy_rofs_defconfig
 ./scripts/run.sh make
 ```
 
