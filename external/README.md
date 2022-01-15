@@ -88,7 +88,7 @@ Modified from original post:
 
 ## Saving configs
 
-A modified configuration can be saved using something like this (replacing the text 'mycustom_defconfig'):
+A modified configuration can be saved using something like this (replacing the text 'mycustom'):
 
 ```shell
 ./scripts/run.sh make BR2_DEFCONFIG=/root/buildroot/external/configs/mycustom_defconfig savedefconfig
