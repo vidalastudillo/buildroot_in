@@ -23,7 +23,7 @@ RUN apt-get update && \
     whois \
     patch \
     perl \
-    python \
+    python3 \
     rsync \
     sed \
     tar \
@@ -34,7 +34,8 @@ RUN apt-get update && \
     flex \
     libssl-dev \
     libfdt-dev \
-    nano
+    nano \
+    graphviz
 
 # Sometimes Buildroot need proper locale, e.g. when using a toolchain
 # based on glibc.

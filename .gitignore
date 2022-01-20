@@ -3,6 +3,5 @@
 .DS_Store
 .DS_Store?
 docs
-images
-target
+output
 external_private
