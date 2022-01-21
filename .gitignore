@@ -5,3 +5,4 @@
 docs
 output
 external_private
+.pytest_cache
