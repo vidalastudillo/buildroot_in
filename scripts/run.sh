@@ -31,15 +31,12 @@ DOCKER_RUN="docker run
     --rm
     -ti
     --volumes-from buildroot_output
+    -v $(pwd)/local_sources:$BUILDROOT_DIR/local_sources
     -v $(pwd)/external:$BUILDROOT_DIR/external
     -v $(pwd)/external_private:$BUILDROOT_DIR/external_private
     -v $(pwd)/rootfs_overlay:$BUILDROOT_DIR/rootfs_overlay
     -v $(pwd)/output:$OUTPUT_DIR
     advancedclimatesystems/buildroot"
-
-    # -v $(pwd)/local_sources:/local_sources
-    # -v $(pwd)/target:$OUTPUT_DIR/target
-    # -v $(pwd)/images:$OUTPUT_DIR/images
 
 make() {
     echo "make O=$OUTPUT_DIR"
