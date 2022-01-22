@@ -124,12 +124,12 @@ The .mk can be defined like this when using Github:
     THETEST_SITE = git@github.com:<your user name>/<repo name>
     THETEST_SITE_METHOD = git
 
-Refrain to use `main` on the final version, to prevent issues [explained at the documentation][buildroot_generic_package].
+Refrain to use `main` on the final version, to prevent issues [explained on the documentation][buildroot_generic_package].
 
-To make that work the container has to be able to connect through SSH to GitHub:
+To make that work, the container has to be able to connect through SSH to GitHub:
 
 1. Follow the [documentation from GitHub about it][github_ssh].
-2. Place a folder named .ssh with the generated identification and .PUB files to make those available to the container.
+2. Place a folder named .ssh on the host computer with the generated identification and .PUB files to make those available to the container.
 
 To test this, get into the container:
 ```shell
