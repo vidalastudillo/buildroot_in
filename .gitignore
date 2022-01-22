@@ -3,6 +3,7 @@
 .DS_Store
 .DS_Store?
 .pytest_cache
+.ssh
 docs
 external_private
 local_sources

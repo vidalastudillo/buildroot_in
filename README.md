@@ -116,6 +116,35 @@ docker import - dietfs < images/rootfs.tar
 docker run --rm -ti dietfs sh
 ```
 
+## Creating packages from private git repositories:
+
+The .mk can be defined like this when using Github:
+
+    THETEST_VERSION = main
+    THETEST_SITE = git@github.com:<your user name>/<repo name>
+    THETEST_SITE_METHOD = git
+
+Refrain to use `main` on the final version, to prevent issues [explained at the documentation][buildroot_generic_package].
+
+To make that work the container has to be able to connect through SSH to GitHub:
+
+1. Follow the [documentation from GitHub about it][github_ssh].
+2. Place a folder named .ssh with the generated identification and .PUB files to make those available to the container.
+
+To test this, get into the container:
+```shell
+./scripts/run.sh make
+```
+
+Once there, you have to get successful responses to commands like this:
+
+```shell
+ssh git@github.com
+git clone git@github.com:<your user name>/<repo name>
+```
+
+This has been produced thanks to the invaluable support of `y_morin` and `troglobit` from the #buildroot IRC Channel.
+
 ## License
 
 This software is licensed under Mozilla Public License.
@@ -137,3 +166,5 @@ It has been modified and extended by Mauricio Vidal from [VIDAL & ASTUDILLO Ltda
 [migrating_buildroot]:http://buildroot.uclibc.org/downloads/manual/manual.html#migrating-from-ol-versions
 [evgueni]:https://forums.raspberrypi.com/memberlist.php?mode=viewprofile&u=208985&sid=be8a772e5aef87a4991576d69e510cce
 [evgueni_post]:https://forums.raspberrypi.com/viewtopic.php?t=307052&sid=b8bbc7d25cf2b58cb6d4a35edd716d6a
+[github_ssh]:https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+[buildroot_generic_package]:https://buildroot.org/downloads/manual/manual.html#generic-package-reference
