@@ -2,7 +2,8 @@
 ######################
 .DS_Store
 .DS_Store?
-docs
-output
-external_private
 .pytest_cache
+docs
+external_private
+local_sources
+output
