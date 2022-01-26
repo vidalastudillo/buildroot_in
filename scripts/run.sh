@@ -27,6 +27,10 @@ set -e
 OUTPUT_DIR=/buildroot_output
 BUILDROOT_DIR=/root/buildroot
 
+# At least on macOS, exposing the full OUTPUT_DIR to the host, seems to impact
+# negatively the speed of the builds and frequent errors building libraries.
+# That's why we just expose images and target
+
 DOCKER_RUN="docker run
     --rm
     -ti
@@ -35,7 +39,8 @@ DOCKER_RUN="docker run
     -v $(pwd)/external:$BUILDROOT_DIR/external
     -v $(pwd)/external_private:$BUILDROOT_DIR/external_private
     -v $(pwd)/rootfs_overlay:$BUILDROOT_DIR/rootfs_overlay
-    -v $(pwd)/output:$OUTPUT_DIR
+    -v $(pwd)/images:$OUTPUT_DIR/images
+    -v $(pwd)/target:$OUTPUT_DIR/target
     advancedclimatesystems/buildroot"
 
 make() {

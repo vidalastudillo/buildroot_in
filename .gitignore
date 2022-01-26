@@ -6,4 +6,5 @@
 .ssh
 docs
 external_private
-output
+images
+target

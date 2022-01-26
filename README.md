@@ -8,7 +8,7 @@ A Docker image for using [Buildroot][buildroot]. It can be found on [Docker Hub]
 
 * To get a clone, use at the host:
 ``` shell
-git clone https://github.com/vidalastudillo/buildroot_in
+git clone https://github.com/vidalastudillo/docker-buildroot
 ```
 
 * Check [migrating Buildroot][migrating_buildroot] if you change the Buildroot version on the Dockerfile.
