@@ -49,7 +49,7 @@ Because `run.sh` mounts the local folder `images/` at this place the build produ
 To use the custom external tree using the mechanism [described in the documentation][br2_external] related to the `BR2_EXTERNAL` environment variable, the following is required to be called once.
 
 ``` shell
-./scripts/run.sh make BR2_EXTERNAL=/root/buildroot/external menuconfig
+./scripts/run.sh make BR2_EXTERNAL=/root/buildroot/externals/<your custom folder> menuconfig
 ```
 
 From now on, the menuconfig will be aware of the content of the external tree and its identification (By reading the `external.desc` content).
@@ -100,12 +100,8 @@ Selecting that custom config, cleaning a previous build and making it can be acc
 A modified configuration can be saved using something like this (replacing the text 'mycustom'):
 
 ```shell
-./scripts/run.sh make BR2_DEFCONFIG=/root/buildroot/external/configs/mycustom_defconfig savedefconfig
+./scripts/run.sh make BR2_DEFCONFIG=/root/buildroot/externals/<your folder>/configs/mycustom_defconfig savedefconfig
 ```
-
-## Kivy build
-
-There is an example about building different images including a Python Kivy to run on a Raspberry Pi 2 [based on a post][evgueni_post] by [evgueni][evgueni]. It uses the [external tree][external_tree] and it is [documented here][external_tree_doc]
 
 ## Docker image from root filesystem
 
@@ -159,12 +155,10 @@ It has been modified and extended by Mauricio Vidal from [VIDAL & ASTUDILLO Ltda
 [hub]:https://hub.docker.com/r/advancedclimatesystems/docker-buildroot/builds/
 [run.sh]:scripts/run.sh
 [docker_python3_defconfig]:external/configs/docker_python3_defconfig
-[external_tree]:external
-[external_tree_doc]:external/README.md
+
 [br2_external]:http://buildroot.uclibc.org/downloads/manual/manual.html#outside-br-custom
 [docker_blog]:https://blog.docker.com/2013/06/create-light-weight-docker-containers-buildroot/
 [migrating_buildroot]:http://buildroot.uclibc.org/downloads/manual/manual.html#migrating-from-ol-versions
-[evgueni]:https://forums.raspberrypi.com/memberlist.php?mode=viewprofile&u=208985&sid=be8a772e5aef87a4991576d69e510cce
-[evgueni_post]:https://forums.raspberrypi.com/viewtopic.php?t=307052&sid=b8bbc7d25cf2b58cb6d4a35edd716d6a
+
 [github_ssh]:https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 [buildroot_generic_package]:https://buildroot.org/downloads/manual/manual.html#generic-package-reference
