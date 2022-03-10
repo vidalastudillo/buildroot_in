@@ -4,6 +4,5 @@
 .DS_Store?
 .pytest_cache
 .ssh
-docs
 images
 target
