@@ -35,7 +35,14 @@ RUN apt-get update && \
     libssl-dev \
     libfdt-dev \
     nano \
-    graphviz
+    graphviz \
+    python3-pip
+
+# This packages are required to run `utils/scanpypi` to
+# fetch a python-package from the PyPI repository:
+# https://pypi.python.org/
+# and to improve its licenses detection.
+RUN pip install six spdx_lookup
 
 # Sometimes Buildroot need proper locale, e.g. when using a toolchain
 # based on glibc.
