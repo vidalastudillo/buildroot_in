@@ -5,7 +5,7 @@ A Docker image for using [Buildroot][buildroot]. It can be found on [Docker Hub]
 
 # Quick Setup
 
-Before start, be sure to set Docker Engine configuration on the host allows enough the disk space, processors and other resources. Processors and memory play a huge impact on the speed of the builds.
+Before start, be sure to set Docker Engine configuration on the host allows enough the disk space, processors and other resources. Number of processors and memory have a huge impact on the speed completion of the builds.
 
 1. Get a clone of this repo at your host:
 
