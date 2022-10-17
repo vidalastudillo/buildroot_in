@@ -2,38 +2,38 @@
 
 A Docker image for using [Buildroot][buildroot]. It can be found on [Docker Hub][hub].
 
-## Quick Tips
 
-* Before start, be sure to set Docker Engine configuration on the host allows enough the disk space, processors and other resources.
+# Quick Setup
 
-* To get a clone, use at the host:
+Before start, be sure to set Docker Engine configuration on the host allows enough the disk space, processors and other resources. Processors and memory play a huge impact on the speed of the builds.
+
+1. Get a clone of this repo at your host:
+
 ``` shell
 git clone https://github.com/vidalastudillo/docker-buildroot
 ```
 
-* Check [migrating Buildroot][migrating_buildroot] if you change the Buildroot version on the Dockerfile.
-
-## Get started
-
-1. To get started build the Docker image.
+2. Build the Docker image.
 
 ``` shell
 docker build -t "advancedclimatesystems/buildroot" .
 ```
 
-2. Create a [data-only container][data-only] to use as build and download
-cache and to store your build products.
+3. Create a [data-only container][data-only] to use as build and download cache and to store your build products.
 
 ``` shell
 docker run -i --name buildroot_output advancedclimatesystems/buildroot /bin/echo "Data only."
 ```
 
 This container has 2 volumes at `/root/buildroot/dl` and `/buildroot_output`.
+
 Buildroot downloads al data to the first volume, the last volume is used as build cache, cross compiler and build results.
 
-## Usage
+
+# Usage
 
 A small script has been provided to make using the container a little easier.
+
 It's located at [scripts/run.sh][run.sh]. Instructions below show how to build a kernel for the Raspberry Pi using the a defconfig provided by Buildroot.
 
 ``` shell
@@ -141,7 +141,13 @@ git clone git@github.com:<your user name>/<repo name>
 
 This has been produced thanks to the invaluable support of `y_morin` and `troglobit` from the #buildroot IRC Channel.
 
-## License
+
+## Tips
+
+* Check [migrating Buildroot][migrating_buildroot] if you change the Buildroot version on the Dockerfile.
+
+
+# License
 
 This software is licensed under Mozilla Public License.
 It is based on the original work by: 
