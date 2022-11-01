@@ -48,7 +48,9 @@ RUN pip install six spdx_lookup
 # based on glibc.
 RUN locale-gen en_US.utf8
 
-RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2022.08.1 /root/buildroot
+# RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2022.08.1 /root/buildroot
+# This branch uses a customized buildroot used by Mauricio Vidal 
+RUN git clone git@github.com:maovidal/buildroot.git --depth=1 --branch=2022.08.1 /root/buildroot
 
 WORKDIR /root/buildroot
 
