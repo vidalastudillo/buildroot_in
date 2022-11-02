@@ -48,9 +48,9 @@ RUN pip install six spdx_lookup
 # based on glibc.
 RUN locale-gen en_US.utf8
 
-# RUN git clone git://git.buildroot.net/buildroot --depth=1 --branch=2022.08.1 /root/buildroot
-# This branch uses a customized buildroot used by Mauricio Vidal 
-RUN git clone git@github.com:maovidal/buildroot.git --depth=1 --branch=2022.08.1 /root/buildroot
+# This will be a folder used to link content from the host related to
+# Buildroot's external mechanism
+RUN mkdir -p /buildroot_externals
 
 WORKDIR /root/buildroot
 
@@ -59,7 +59,7 @@ ENV O=/buildroot_output
 RUN touch .config
 RUN touch kernel.config
 
-VOLUME /root/buildroot/dl
+# This will be volume that will contain Buildroot's results
 VOLUME /buildroot_output
 
 RUN ["/bin/bash"]
