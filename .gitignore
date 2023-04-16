@@ -8,3 +8,5 @@ images
 target
 # This is where another repository will be stored.
 buildroot/
+# Other temporal folders
+.VSCodeCounter
