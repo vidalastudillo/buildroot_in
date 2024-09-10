@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,6 +10,7 @@ RUN apt-get update && \
     binutils \
     bzip2 \
     cpio \
+    file \
     g++ \
     gcc \
     git \
@@ -36,13 +37,15 @@ RUN apt-get update && \
     libfdt-dev \
     nano \
     graphviz \
-    python3-pip
+    python3-pip \
+    pipx \
+    python3-six
 
-# This packages are required to run `utils/scanpypi` to
-# fetch a python-package from the PyPI repository:
-# https://pypi.python.org/
+# `six` and `spdx_lookup` packages are required to run `utils/scanpypi` which 
+# fetchs python-packages from the PyPI repository: https://pypi.python.org/
 # and to improve its licenses detection.
-RUN pip install six spdx_lookup
+
+RUN pipx install spdx_lookup
 
 # Sometimes Buildroot need proper locale, e.g. when using a toolchain
 # based on glibc.
@@ -55,6 +58,11 @@ RUN mkdir -p /buildroot_externals
 WORKDIR /root/buildroot
 
 ENV O=/buildroot_output
+
+# The following is set after upgrading from ubuntu:20.04 to ubuntu:24.04
+# Otherwise the build process complains about running as a root.
+# More info at: https://stackoverflow.com/questions/69026206/running-buildroot-as-root-still-error-after-setting-force-unsafe-configure-1-in
+ENV FORCE_UNSAFE_CONFIGURE=1
 
 RUN touch .config
 RUN touch kernel.config
